@@ -23,26 +23,30 @@ $(document).ready(function () {
 
     displayGame();
 
-    function displayGame(){
+    function displayGame() {
 
         getRandNum(randNumMin, randNumMax);
         $("#win").append(numWins);
         $("#loss").append(numLoss);
-
+        $("#totalScore").append(total);
+        assignGemVal();
     }
-    // We are going to generate 4 gems, each has a different "random" value for when it is clicked
-    for (var x = 0; x < 4; x++) {
-        gemImage = $("<img>");
-        randGemNum = getRandGemNum(gemMin, gemMax);
-        gemImage.attr('data-gem-value', randGemNum);
-        gemImage.attr('src', "./assets/images/gem_green-200x200.jpg")
-        $("#gems").append(gemImage);
 
-        gemImage.on('click', function () {
-            console.log("You clicked a gem");
-            gemVal = $(this).attr('data-gem-value');
-            console.log(gemVal);
-        })
+    function assignGemVal() {
+        // We are going to generate 4 gems, each has a different "random" value for when it is clicked
+        for (var x = 0; x < 4; x++) {
+            gemImage = $("<img>");
+            randGemNum = getRandGemNum(gemMin, gemMax);
+            gemImage.attr('data-gem-value', randGemNum);
+            gemImage.attr('src', "./assets/images/gem_green-200x200.jpg")
+            $("#gems").append(gemImage);
+
+            gemImage.on('click', function () {
+                console.log("You clicked a gem");
+                gemVal = $(this).attr('data-gem-value');
+                console.log(gemVal);
+            })
+        }
     }
 
 
@@ -55,15 +59,14 @@ $(document).ready(function () {
         $("#randomNumber").append(randomNumber);
     }
 
-    function getNumWins( ) {
+    function getNumWins() {
         numWins++;
-        console.log(numWins);
     }
 
     function getNumLoss() {
         numLoss++;
     }
-        
+
 
 
 });  //closes $(document).ready
