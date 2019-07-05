@@ -4,10 +4,10 @@ const randNumMax = 120;
 const gemMin = 1;
 const gemMax = 12;
 
-var numWin = 0;
-var win = 0;
+// var win = 0;
+// var loss = 0;
+var numWins = 0;
 var numLoss = 0;
-var loss = 0;
 var total = 0;
 var num1 = 0;
 var num2 = 0;
@@ -24,7 +24,11 @@ $(document).ready(function () {
     displayGame();
 
     function displayGame(){
+
         getRandNum(randNumMin, randNumMax);
+        $("#win").append(numWins);
+        $("#loss").append(numLoss);
+
     }
     // We are going to generate 4 gems, each has a different "random" value for when it is clicked
     for (var x = 0; x < 4; x++) {
@@ -49,7 +53,15 @@ $(document).ready(function () {
     function getRandNum(randNumMin, RandNumMax) {
         randomNumber = Math.floor(Math.random() * (RandNumMax - randNumMin) + 1) + randNumMin;
         $("#randomNumber").append(randomNumber);
+    }
 
+    function getNumWins( ) {
+        numWins++;
+        console.log(numWins);
+    }
+
+    function getNumLoss() {
+        numLoss++;
     }
         
 
