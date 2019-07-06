@@ -9,62 +9,91 @@ const gemMax = 12;
 var numWins = 0;
 var numLoss = 0;
 var total = 0;
+var totalScore = 0;
 var num1 = 0;
 var num2 = 0;
-var randGemNum = 0;
+var randGemVal = 0;
 var gemVal = 0;
 var gemArr = [];
 var gemImage;
-var randomNumber = 0;
+var randNum = 0;
 
 
 
 $(document).ready(function () {
 
     displayGame();
-
+    startGame();
+    
+    
     function displayGame() {
 
         getRandNum(randNumMin, randNumMax);
         $("#win").append(numWins);
         $("#loss").append(numLoss);
         $("#totalScore").append(total);
-        assignGemVal();
+        
+
+        
+
     }
 
-    function assignGemVal() {
+    function startGame() {
         // We are going to generate 4 gems, each has a different "random" value for when it is clicked
         for (var x = 0; x < 4; x++) {
-            gemImage = $("<img>");
-            randGemNum = getRandGemNum(gemMin, gemMax);
-            gemImage.attr('data-gem-value', randGemNum);
+            gemImage = $("<img>");  //assign all img tags to gemImage
+            randGemVal = getRandGemVal(gemMin, gemMax);  //calls method & assigns value to randGemNum
+            gemImage.attr('data-gem-value', randGemVal);  //create gemImage attr: datat-gem-value & assign randGemVal
             gemImage.attr('src', "./assets/images/gem_green-200x200.jpg")
             $("#gems").append(gemImage);
-
+        
             gemImage.on('click', function () {
-                console.log("You clicked a gem");
                 gemVal = $(this).attr('data-gem-value');
-                console.log(gemVal);
+                console.log("You clicked a gem " + gemVal);
+    
+                console.log("total before getTotal(): " + total);
+                 
+                total = getTotal(total, gemVal);
+                console.log("total after getTotal(): " + total);
+                $("#totalScore").append(total);
+
+
+
+    
             })
         }
     }
+            
+        
+    
 
 
-    function getRandGemNum(gemMin, gemMax) {
+    function getRandGemVal(gemMin, gemMax) {
         return Math.floor(Math.random() * (gemMax - gemMin) + 1) + gemMin;
     }
 
     function getRandNum(randNumMin, RandNumMax) {
-        randomNumber = Math.floor(Math.random() * (RandNumMax - randNumMin) + 1) + randNumMin;
-        $("#randomNumber").append(randomNumber);
+        randNum = Math.floor(Math.random() * (RandNumMax - randNumMin) + 1) + randNumMin;
+        $("#randomNumber").append(randNum);
     }
 
-    function getNumWins() {
+    function getTotal(total, gemVal){
+        total += gemVal;
+        console.log("gemVal inside getTotal() " + gemVal);
+        console.log("total inside getTotal() " + total);
+        // $("#totalScore").append(total);
+        return total;
+
+    }
+    function getWins() {
         numWins++;
+        $("#win").append(numWins);
+        
     }
 
-    function getNumLoss() {
+    function getLoss() {
         numLoss++;
+        $("#loss").append(numLoss);
     }
 
 
