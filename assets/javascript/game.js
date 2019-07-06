@@ -9,12 +9,12 @@ const gemMax = 12;
 var numWins = 0;
 var numLoss = 0;
 var total = 0;
-var totalScore = 0;
-var num1 = 0;
-var num2 = 0;
+// var totalScore = 0;
+// var num1 = 0;
+// var num2 = 0;
 var randGemVal = 0;
 var gemVal = 0;
-var gemArr = [];
+// var gemArr = [];
 var gemImage;
 var randNum = 0;
 
@@ -23,7 +23,12 @@ var randNum = 0;
 $(document).ready(function () {
 
     displayGame();
-    startGame();
+    if (total === randNum) {
+        getWins();
+    }
+    else {
+        startGame();
+    }
     
     
     function displayGame() {
@@ -32,10 +37,7 @@ $(document).ready(function () {
         $("#win").append(numWins);
         $("#loss").append(numLoss);
         $("#totalScore").append(total);
-        
-
-        
-
+             
     }
 
     function startGame() {
@@ -57,9 +59,20 @@ $(document).ready(function () {
                 console.log("total after getTotal(): " + total);
                 $("#totalScore").append(total);
 
+                if (total === randNum){
+                    getWins();
+                    getRandNum(randNumMin, randNumMax);
+                    alert("Winner! Click gem to play again.")
+                    total = 0;
 
+                }
+                else if (total > randNum) {
+                    getLoss();
+                    getRandNum(randNumMin, randNumMax);
+                    alert("Loser! Click gem to play again.")
+                    total = 0;
 
-    
+                }              
             })
         }
     }
@@ -81,7 +94,6 @@ $(document).ready(function () {
         total += gemVal;
         console.log("gemVal inside getTotal() " + gemVal);
         console.log("total inside getTotal() " + total);
-        // $("#totalScore").append(total);
         return total;
 
     }
