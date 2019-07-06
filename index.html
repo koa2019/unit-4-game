@@ -9,10 +9,12 @@
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 
+  <!-- css -->
   <!-- Bootstrap -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
   <!-- javascript -->
   <script src="assets/javascript/game.js" type="text/javascript"></script>
@@ -49,7 +51,7 @@
         <div>Wins: </div>
         <div id="win"></div>
         <div>Losses: </div>
-        <div  id="loss"></div>
+        <div id="loss"></div>
 
       </div>
     </div>
@@ -67,7 +69,7 @@
     </div>
 
     <!-- row -->
-    <div class="row">      
+    <div class="row">
       <div class="card">
         <div class="card-header">Total Score: </div>
         <div class="card-body">
@@ -79,7 +81,7 @@
       </div>
     </div>
 
-  <!-- this /div closes class=container -->
+    <!-- this /div closes class=container -->
   </div>
 
 
@@ -99,11 +101,44 @@
     //     console.log(gemVal);
     //   })
     // }
+    // function startGame() {
+    //     // We are going to generate 4 gems, each has a different "random" value for when it is clicked
+    //     for (var x = 0; x < 4; x++) {
+    //         gemImage = $("<img>");  //assign all img tags to gemImage
+    //         randGemVal = getRandGemVal(gemMin, gemMax);  //calls method & assigns value to randGemNum
+    //         gemImage.attr('data-gem-value', randGemVal);  //create gemImage attr: datat-gem-value & assign randGemVal
+    //         gemImage.attr('src', "./assets/images/gem_green-200x200.jpg")
+    //         $("#gems").append(gemImage);
 
+    //         gemImage.on('click', function () {
+    //             gemVal = $(this).attr('data-gem-value');
+    //             console.log("You clicked a gem " + gemVal);
 
-    // function getRandGemVal(gemMin, gemMax) {
-    //   return Math.floor(Math.random() * (gemMax - gemMin) + 1) + gemMin;
+    //             // console.log("total before getTotal(): " + total);
+    //             total = parseInt(total);
+    //             gemVal = parseInt(gemVal);
+
+    //             total = getTotal(total, gemVal);
+    //             console.log("total after getTotal(): " + total);
+    //             $("#totalScore").text(total);
+
+    //             if (total === randNum) {
+    //                 getWins();
+    //                 getRandNum(randNumMin, randNumMax);
+    //                 console.log("Winner! Click gem to play again.");
+
+    //             }
+    //             else if (total > randNum) {
+    //                 getLoss();
+    //                 console.log("randMin " + randNumMin + " randMax " + randNumMax);
+    //                 getRandNum(randNumMin, randNumMax);
+    //                 resetGame();
+
+    //             }
+    //         })
+    //     }
     // }
+
 
   </script>
 
