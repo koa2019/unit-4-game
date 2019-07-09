@@ -12,7 +12,7 @@ $(document).ready(function () {
     var gemVal = 0;
     var gemImage;
     var randNum = 0;
-    var imageArr = [ "./assets/images/gem-purple.png", "./assets/images/diamond_340.png", "./assets/images/gem-green.png", "./assets/images/gem_green-200x200.jpg"];
+    var imageArr = [ "./assets/images/gem-purple.png", "./assets/images/diamond_340.png", "./assets/images/gem-purple1.png", "./assets/images/gem-pink.png"];
     
     //*****************************************************************
     //************************Calling functions************************
